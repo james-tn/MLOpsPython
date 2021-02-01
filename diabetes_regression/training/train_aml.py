@@ -124,7 +124,7 @@ def main():
     for (k, v) in train_args.items():
         run.log(k, v)
         run.parent.log(k, v)
-
+    print("parent log", run.parent.get_metrics().get("mse"))
     # Get the dataset
     if (dataset_name):
         if (data_file_path == 'none'):
