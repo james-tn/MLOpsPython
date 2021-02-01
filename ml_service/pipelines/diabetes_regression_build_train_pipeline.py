@@ -34,6 +34,8 @@ def main():
         conda_dependencies_file=e.aml_env_train_conda_dep_file,
         create_new=e.rebuild_env,
     )  #
+
+    print("Environment spec is ", environment)
     run_config = RunConfiguration()
     run_config.environment = environment
 

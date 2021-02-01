@@ -17,15 +17,24 @@
 name: diabetes_regression_training_env
 dependencies:
   # The python interpreter version.
+  # Currently Azure ML Workbench only supports 3.5.2 and later.
+  - python=3.7.*
+  - pip
 
-  # Currently Azure ML only supports 3.5.2 and later.
+  - pip:
+      # Base AzureML SDK
+      - azureml-sdk
 
-- python=3.6.2
+      # Must match AzureML SDK version.
+      # https://docs.microsoft.com/en-us/azure/machine-learning/concept-environments
+      - azureml-defaults
 
-- pip:
-  - azureml-defaults~=1.9.0
-  - lightgbm
-  - inference-schema[numpy-support,pandas-support]
-channels:
-- anaconda
-- conda-forge
+      # Training deps
+      - scikit-learn
+
+      # Scoring deps
+      - inference-schema[numpy-support]
+
+      # MLOps with R
+      - azure-storage-blob
+      - lightgbm
