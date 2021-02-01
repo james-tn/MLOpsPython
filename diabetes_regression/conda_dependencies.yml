@@ -37,3 +37,4 @@ dependencies:
 
       # MLOps with R
       - azure-storage-blob
+      - lightgbm
