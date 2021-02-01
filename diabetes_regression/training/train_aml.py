@@ -154,6 +154,7 @@ def main():
     for (k, v) in metrics.items():
         run.log(k, v)
         run.parent.log(k, v)
+        print(k,v)
     print("parent log", run.parent.get_metrics().get("mse"))
 
     # Pass model file to next step
